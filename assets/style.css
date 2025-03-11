@@ -21,12 +21,6 @@ body{
     margin-left: 20px;
 }
 
-
-/* .body-main{
-    margin-right:500px;
-} */
-
-
 .bottom{
     margin: 0px auto;
     margin-top: 50px;
@@ -35,31 +29,44 @@ body{
 
 }
 .b-h{
-    font-size: 47px;
+    font-size: 40px;
     font-weight: 400;
     color: #1d1e4c;
     margin-bottom: 20px;
+    text-align: center;
 }
-.b-t{
+.b-t1{
     color: #1d1e4c;
-    font-size: 19px;
+    font-size: 15px;
     line-height: 25px;
+    margin-bottom: 20px;
 
 }
-.b-t p{
+.b-t1 p{
     letter-spacing: 1.5px;
 
 }
 
-.fa-brands:hover{
-    transition: all 0.5s ease;
-    font-size: 40px;
+.b-t2{
+    color: #1d1e4c;
+    font-size: 15px;
+    line-height: 25px;
+
 }
-.fa-brands{
-    font-family: "Font Awesome 6 Brands";
+.b-t2 p{
+    letter-spacing: 1.5px;
+
+}
+
+.bi-brands:hover{
+    transition: all 0.5s ease; 
+    color: #3366CC ; 
+}
+.bi-brands{
     font-weight: 400;
     font-size: 35px;
-    margin-left: 40px;
+    margin-left: 20px;
+    color: #1d1e4c;
     }
 
 .link-main{
@@ -77,6 +84,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-left: 20px;
 
 }
 

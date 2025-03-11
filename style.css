@@ -11,25 +11,27 @@ body{
 .top{
     margin: 0px auto;
     float: right;
-    margin-top: 50px;
     align-items: flex-end;
 }
 
 .image img{
-    width: 20vh;
-    height:20vh;
+    width: 80vh;
+    height:90vh;
+    margin-right:20px;
+    margin-left: 20px;
 }
 
 
-.body-main{
+/* .body-main{
     margin-right:500px;
-}
+} */
 
 
 .bottom{
     margin: 0px auto;
     margin-top: 50px;
     margin-left: 40px;
+    margin-bottom: 20px;
 
 }
 .b-h{
@@ -71,10 +73,6 @@ body{
     align-items: center;
     font-size: 23px;
 }
-.namee-cont{
-    margin-left: 30px;
-    
-}
 .links{
     display: flex;
     flex-direction: column;
@@ -82,9 +80,3 @@ body{
 
 }
 
-.namee{
-    display: flex;
-    height: 70px;
-    align-items: center;
-    font-size: 23px;
-}

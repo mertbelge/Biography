@@ -1,12 +1,44 @@
 *{
     background: url('./images/gray-painted-background.jpg');
     background-size: cover;
-    background-attachment: fixed
+    background-attachment: fixed;
 }
+
 
 @font-face {
     font-family: 'HeaderFont';
     src: url('./fonts/HappyTimeThree-mDDj.otf') format('opentype');
+}
+
+@font-face{
+    font-family: 'ErrorFont';
+    src: url('./fonts/HussarNovaExtraboldItalic-AWXp.otf')
+}
+
+@media (max-width: 768px) {
+    .top
+    {
+        display: none;
+    }
+}
+
+#loading{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    background-color: transparent;
+    font-size:25px
+}
+
+#loader-error{
+    display: none;
+    font-family: 'ErrorFont';
 }
 
 
@@ -28,13 +60,27 @@ body{
     margin-left: 20px;
 }
 
+.bi-translate{
+    position: fixed;
+    top: 0;
+    margin-top:20px;
+    margin-left:20px;
+    border: 2px;
+    color: #000000
+    }
+
+.bi-translate:hover{
+    transition: all 0.5s ease; 
+    color: #E0E0E0 ; 
+}
+
 .bottom{
     margin: 0px auto;
     margin-top: 50px;
     margin-left: 40px;
     margin-bottom: 20px;
-
 }
+
 .b-h{
     font-size: 40px;
     font-weight: 400;
@@ -45,7 +91,7 @@ body{
 }
 .b-t1{
     color: #E0E0E0;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 25px;
     margin-bottom: 20px;
 
@@ -57,7 +103,7 @@ body{
 
 .b-t2{
     color: #E0E0E0;
-    font-size: 15px;
+    font-size: 12px;
     line-height: 25px;
 
 }

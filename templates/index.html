@@ -11,6 +11,10 @@
     <script src="../static/script.js"></script>
 </head>
 <body>
+    <div id="loading">
+        <img id="loader" src="../static/images/double-ring.gif"></img>
+        <h2 id="loader-error"><p>Error has been occured !!!</p></h2>
+    </div>
     <section class="top">
         <div class="image">
             <img src="../static/images/profile.png">
@@ -18,17 +22,18 @@
         
     </section>
     <div class= 'body-main'>
-
+    <button id='language-toggle' class ="bi-2x bi-translate"></button>
      <section class="bottom">
         <div class="b-h">
-             <h2 id="main-name">Yükleniyor...</h2>
+
+             <h2 id="main-name"></h2>
         </div>
         <div class="b-t1">
-             <p id="description-first"><b>Yükleniyor...</p>
+             <p id="description-first"></p>
             
          </div>
          <div class="b-t2">
-            <p id="description-second"><b>Yükleniyor...</p>
+            <p id="description-second"></p>
            
         </div>
      </section>

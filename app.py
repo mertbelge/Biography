@@ -20,21 +20,30 @@ def biography():
 
             cursor = db_connection.cursor()
 
-            cursor.execute("SELECT MainName, DescriptionFirst, DescriptionSecond, LinkedIn, Steam, Youtube FROM MainTable")
+            cursor.execute("SELECT MainName, DescriptionFirst, DescriptionSecond FROM MainTable")
             result = cursor.fetchall() 
-            main_name = result[0][0]
-            description_first = result[0][1]
-            description_second = result[0][2]
-            linkedin = result[0][3]
-            steam = result[0][4]
-            youtube = result[0][5]
+            main_name_eng = result[0][0]
+            description_first_eng = result[0][1]
+            description_second_eng = result[0][2]
+            main_name_tr = result[1][0]
+            description_first_tr = result[1][1]
+            description_second_tr = result[1][2]
+
+            cursor.execute("SELECT Youtube, Steam, LinkedIn FROM LinkTable")
+            result = cursor.fetchall() 
+            youtube = result[0][0]
+            steam = result[0][1]
+            linkedin = result[0][2]
 
             cursor.close()
             db_connection.close()
             
-            return jsonify({'main_name': main_name, 
-                            'description_first': description_first,
-                            'description_second': description_second,
+            return jsonify({'main_name_eng': main_name_eng, 
+                            'description_first_eng': description_first_eng,
+                            'description_second_eng': description_second_eng,
+                            'main_name_tr': main_name_tr, 
+                            'description_first_tr': description_first_tr,
+                            'description_second_tr': description_second_tr,
                             'linkedin': linkedin,
                             'steam': steam,
                             'youtube': youtube})

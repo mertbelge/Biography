@@ -42,6 +42,7 @@ fetch('http://127.0.0.1:5000/HeadersInfo', {
     });
 
     document.getElementById('loading').style.display = 'none';
+    document.getElementById('image').style.display = 'block';
 
 })
 .catch(error => {

@@ -20,14 +20,20 @@ def biography():
 
             cursor = db_connection.cursor()
 
-            cursor.execute("SELECT MainName, DescriptionFirst, DescriptionSecond FROM MainTable")
+            cursor.execute("SELECT Language, MainName, DescriptionFirst, DescriptionSecond FROM MainTable")
             result = cursor.fetchall() 
-            main_name_eng = result[0][0]
-            description_first_eng = result[0][1]
-            description_second_eng = result[0][2]
-            main_name_tr = result[1][0]
-            description_first_tr = result[1][1]
-            description_second_tr = result[1][2]
+
+            english_data = next(item for item in result if item[0] == 'ENG')
+
+            main_name_eng = english_data[1]
+            description_first_eng = english_data[2]
+            description_second_eng = english_data[3]
+
+            turkish_data = next(item for item in result if item[0] == 'TR')
+
+            main_name_tr = turkish_data[1]
+            description_first_tr = turkish_data[2]
+            description_second_tr = turkish_data[3]
 
             cursor.execute("SELECT Youtube, Steam, LinkedIn FROM LinkTable")
             result = cursor.fetchall() 

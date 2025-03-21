@@ -1,10 +1,25 @@
+let state_value;
+
 fetch('http://127.0.0.1:5000/HeadersInfo', {
     method: 'GET',  
     headers: {
         'Content-Type': 'application/json'
     }
 })
-.then(response => {return response.json();})
+
+.then(response => {
+
+    if(!response.ok){
+        document.getElementById('loader').style.display = 'none';
+        document.getElementById('loader-error').style.display = 'block';
+
+        state_value = 0;
+    }
+    else{
+        state_value = 1;
+    }
+
+    return response.json();})
 .then(data => {
 
     let currentLanguage = "tr"; // Başlangıç dili Türkçe
@@ -41,8 +56,11 @@ fetch('http://127.0.0.1:5000/HeadersInfo', {
         document.getElementById('description-second').textContent = content[currentLanguage].description_second;
     });
 
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('image').style.display = 'block';
+    if (state_value === 1){
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('image').style.display = 'block';
+    }
 
 })
 .catch(error => {

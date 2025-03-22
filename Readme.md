@@ -23,9 +23,17 @@ This is a biography website that provides information about individuals using a 
 
 ## Installation & Setup
 
+### Create `.env` File
+- API_IP = 
+- DATABASE_IP =
+- DATABASE_USER = 
+- DATABASE_PASSWORD = 
+- DATABASE = 
+
 ### Backend Setup
 - Install Python dependencies
 - Run the Flask API
+
 
 ### Frontend Setup
 - Open `index.html` in a browser.

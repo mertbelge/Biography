@@ -1,24 +1,40 @@
 import pymysql
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
+import json
+
 
 app = Flask(__name__)
 
 CORS(app)
 
+def db_connection():
+      
+    load_dotenv()
+
+    DATABASE_IP = os.getenv("DATABASE_IP")
+    DATABASE_USER = os.getenv("DATABASE_USER")
+    DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
+    DATABASE = os.getenv("DATABASE")
+
+    db_connection = pymysql.connect(
+        host=DATABASE_IP,       
+        user=DATABASE_USER,            
+        password=DATABASE_PASSWORD,      
+        database=DATABASE 
+    )
+
+    return db_connection
+
 @app.route('/HeadersInfo', methods=['GET'])
 
 def biography():
     try:
-            
-            db_connection = pymysql.connect(
-                host="94.55.216.168",       
-                user="starex",            
-                password="1234",      
-                database="WhoIsStarex"  
-            )
 
-            cursor = db_connection.cursor()
+            connection = db_connection()
+            cursor = connection.cursor()
 
             cursor.execute("SELECT Language, MainName, DescriptionFirst, DescriptionSecond FROM MainTable")
             result = cursor.fetchall() 
@@ -42,7 +58,7 @@ def biography():
             linkedin = result[0][2]
 
             cursor.close()
-            db_connection.close()
+            connection.close()
             
             return jsonify({'main_name_eng': main_name_eng, 
                             'description_first_eng': description_first_eng,
@@ -60,7 +76,33 @@ def biography():
     
 @app.route('/index')
 def index():
-      return render_template("index.html")
+
+    load_dotenv()
+      
+    if not os.path.exists('static/config.json'):
+
+        data = {
+        "API_IP" : os.getenv("API_IP")
+        }
+
+        with open('static/config.json','w') as file:
+            json.dump(data, file, indent= 4)
+
+    else:
+        with open('static/config.json', 'r') as file:
+            json_data = json.load(file)
+
+        if os.getenv("API_IP") != json_data:
+                 
+            data = {
+            "API_IP" : os.getenv("API_IP")
+            }
+
+            with open('static/config.json','w') as file:
+                json.dump(data, file, indent= 4)
+            
+    
+    return render_template("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
